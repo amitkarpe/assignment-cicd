@@ -17,3 +17,8 @@ For cold start or stale/changed context, read `AGENTS.md`, `CONTEXT.md`, the own
 - Preserve existing Terraform/workflow code unless the owning Issue authorizes a change.
 - A GitHub write or connected AWS tool does not itself authorize cloud mutation.
 - Reuse the owning Issue/PR; do not create parallel frameworks or proof paths without a real boundary change.
+
+## Portfolio Economy Defaults
+
+- Testing: default to **zero new tests**. Use the smallest existing validation that can prove the change. Add or modify tests only for a real uncovered regression, contract, security boundary, failure mode, or high-signal isolated logic. Once required checks pass and the changed behavior is proven, **stop**.
+- Runners: public repositories may use standard GitHub-hosted runners such as `ubuntu-latest`. Private repositories should avoid GitHub-hosted runners by default and reuse an existing approved CodeBuild/CodePipeline or CodeBuild-hosted Actions runner; do not create new CI infrastructure merely to replace a free public runner.
